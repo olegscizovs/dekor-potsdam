@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Strict CSP: Only allows scripts from self, styles from self. Prevents unsafe-inline -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https://images.unsplash.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Dekor Potsdam | Luxury Decorative Plaster</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header Navigation & Language Switcher -->
+    <header class="site-header">
+        <div class="logo-container">
+            <!-- Rotating SVG Logo Placeholder -->
+            <svg class="logo-svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            <span class="logo-text">DEKOR POTSDAM</span>
+        </div>
+
+        <nav class="main-nav" aria-label="Main Navigation">
+            <ul class="desktop-nav-list">
+                <li><a href="#hero" class="desktop-link" data-i18n="navHome">Home</a></li>
+                <li><a href="#about" class="desktop-link" data-i18n="navAbout">About</a></li>
+                <li><a href="#highlights" class="desktop-link" data-i18n="navHighlights">Highlights</a></li>
+                <li><a href="#gallery" class="desktop-link" data-i18n="navGallery">Gallery</a></li>
+                <li><a href="#contacts" class="desktop-link" data-i18n="navContacts">Contacts</a></li>
+            </ul>
+            <button class="burger-menu" aria-label="Open Menu" tabindex="0">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+        </nav>
+
+        <div class="i18n-switcher" aria-label="Language Switcher">
+            <button class="lang-btn active" data-lang="de" tabindex="0">DE</button>
+            <button class="lang-btn" data-lang="en" tabindex="0">EN</button>
+            <button class="lang-btn" data-lang="ru" tabindex="0">RU</button>
+        </div>
+    </header>
+
+    <!-- Fullscreen Navigation Menu -->
+    <nav id="mobile-nav" class="mobile-nav" aria-hidden="true">
+        <ul class="mobile-nav-list">
+            <li><a href="#hero" class="mobile-link" data-i18n="navHome">Home</a></li>
+            <li><a href="#about" class="mobile-link" data-i18n="navAbout">About</a></li>
+            <li><a href="#highlights" class="mobile-link" data-i18n="navHighlights">Highlights</a></li>
+            <li><a href="#gallery" class="mobile-link" data-i18n="navGallery">Gallery</a></li>
+            <li><a href="#contacts" class="mobile-link" data-i18n="navContacts">Contacts</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Section 1: Hero -->
+        <section id="hero" class="section hero-section">
+            <div class="hero-content reveal-on-scroll">
+                <h1 class="hero-title" data-i18n="heroTitle">Ihr Zuhause, Ihre Wohlfühloase</h1>
+                <p class="hero-subtext" data-i18n="heroSubtext">Ob stilvolle Gestaltung von Wänden, Decken oder Böden -
+                    wir verwandeln Ihr Büro, Ihr Zuhause oder Ihr Geschäft in eine einzigartige Wohlfühloase.</p>
+                <button id="discover-btn" class="cta-button" tabindex="0" data-i18n="heroCTA">Discover Our
+                    Craft</button>
+            </div>
+            <!-- Parallax Background Overlay Placeholder -->
+            <div class="hero-bg"></div>
+        </section>
+
+        <!-- Section 2: About -->
+        <section id="about" class="section about-section">
+            <div class="container split-layout">
+                <div class="split-text reveal-on-scroll">
+                    <h2 class="section-title" data-i18n="aboutTitle">Dekor Salon Potsdam - Ihr Partner für
+                        Raumgestaltung</h2>
+                    <p class="section-desc" data-i18n="aboutDesc">We specialize in premium decorative plaster,
+                        transforming ordinary walls into extraordinary centerpieces. Our master artisans blend
+                        traditional techniques with modern aesthetics to create textures that breathe life into any
+                        interior.</p>
+                    <p class="section-desc" data-i18n="aboutSubDesc">From subtle Venetian stucco to bold concrete
+                        finishes, our work is defined by precision, passion, and unparalleled quality.</p>
+                </div>
+                <div class="split-image-container reveal-on-scroll">
+                    <img src="images/6.jpg" alt="Detailed view of luxury decorative plaster texture"
+                        class="responsive-img lazyload" loading="lazy">
+                </div>
+            </div>
+        </section>
+        <!-- Section 3: Highlights -->
+        <section id="highlights" class="section highlights-section">
+            <div class="container">
+                <h2 class="section-title text-center reveal-on-scroll" data-i18n="highlightsTitle">Unsere Highlights
+                </h2>
+
+                <div class="slider-wrapper">
+                    <button class="slider-btn slider-prev" aria-label="Previous Slide" tabindex="0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+
+                    <div class="slider-track-container">
+                        <div class="slider-track" id="highlights-slider">
+                            <!-- Card 1 -->
+                            <div class="slider-card">
+                                <img src="images/1.jpg" alt="Venetian Stucco Texture" loading="lazy">
+                                <div class="card-content">
+                                    <h3 data-i18n="card1Title">Professionelle Gestaltung</h3>
+                                    <p data-i18n="card1Desc">Ästhetik und Funktionalität in jedem Raum.</p>
+                                </div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="slider-card">
+                                <img src="images/2.jpg" alt="Microcement Texture" loading="lazy">
+                                <div class="card-content">
+                                    <h3 data-i18n="card2Title">Hochwertige Materialien</h3>
+                                    <p data-i18n="card2Desc">Schadstofffreie und natürliche Materialien.</p>
+                                </div>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="slider-card">
+                                <img src="images/3.jpg" alt="Marmorino Texture" loading="lazy">
+                                <div class="card-content">
+                                    <h3 data-i18n="card3Title">Renovierung leicht gemacht</h3>
+                                    <p data-i18n="card3Desc">Ob kleine Ausbesserungen oder umfassende
+                                        Renovierungsarbeiten, wir sind für Sie da.</p>
+                                </div>
+                            </div>
+                            <!-- Card 4 -->
+                            <div class="slider-card">
+                                <img src="images/4.jpg" alt="Travertino Texture" loading="lazy">
+                                <div class="card-content">
+                                    <h3 data-i18n="card4Title">Erfahrene Malermeister</h3>
+                                    <p data-i18n="card4Desc">Unser Team besteht aus erfahrenen Experten, die Ihre
+                                        Wünsche umsetzen.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="slider-btn slider-next" aria-label="Next Slide" tabindex="0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Gallery -->
+        <section id="gallery" class="section gallery-section">
+            <div class="container">
+                <h2 class="section-title text-center reveal-on-scroll" data-i18n="galleryTitle">Our Portfolio</h2>
+                <div class="gallery-wrapper">
+                    <button class="gallery-nav-btn gallery-prev" aria-label="Previous Image" tabindex="0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <div class="gallery-grid">
+
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/18.jpg" alt="Gallery Image 6" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/14.jpg" alt="Gallery Image 7" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/15.jpg" alt="Gallery Image 8" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/16.jpg" alt="Gallery Image 6" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/20.jpg" alt="Gallery Image 7" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/12.jpg" alt="Gallery Image 8" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/19.jpg" alt="Gallery Image 6" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/27.jpg" alt="Gallery Image 7" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/10.jpg" alt="Gallery Image 8" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/17.jpg" alt="Gallery Image 6" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/24.jpg" alt="Gallery Image 7" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/13.jpg" alt="Gallery Image 8" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/11.jpg" alt="Gallery Image 6" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/22.jpg" alt="Gallery Image 7" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/21.jpg" alt="Gallery Image 8" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/23.jpg" alt="Gallery Image 6" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/25.jpg" alt="Gallery Image 7" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/26.jpg" alt="Gallery Image 8" loading="lazy">
+                        </button>
+                        <button class="gallery-item" aria-label="View Image 5">
+                            <img src="images/29.jpg" alt="Gallery Image 8" loading="lazy">
+                        </button>
+                    </div>
+                    <button class="gallery-nav-btn gallery-next" aria-label="Next Image" tabindex="0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Section 5: Contacts -->
+        <section id="contacts" class="section contacts-section">
+            <div class="container text-center">
+                <h2 class="section-title reveal-on-scroll" data-i18n="contactsTitle">Get in Touch</h2>
+                <div class="contact-info reveal-on-scroll">
+                    <address class="contact-details">
+                        <p class="contact-label" data-i18n="contactAddressLabel">Address:</p>
+                        <p class="contact-value" data-i18n="contactAddress">Plasterstr. 1, 14467 Potsdam, Germany</p>
+
+                        <p class="contact-label" data-i18n="contactPhoneLabel">Phone:</p>
+                        <p class="contact-value" data-i18n="contactPhone">+49 331 1234567</p>
+
+                        <p class="contact-label" data-i18n="contactEmailLabel">Email:</p>
+                        <p class="contact-value" data-i18n="contactEmail">info@dekorpotsdam.de</p>
+
+                        <p class="contact-label" data-i18n="contactHoursLabel">Business Hours:</p>
+                        <p class="contact-value" data-i18n="contactHours">Mon-Fri: 9:00 - 18:00</p>
+                    </address>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Section 6: Footer -->
+    <footer class="site-footer" id="footer">
+        <div class="container footer-content">
+            <nav class="footer-nav" aria-label="Footer Navigation">
+                <a href="#hero" class="footer-link" data-i18n="navHome">Home</a>
+                <a href="#about" class="footer-link" data-i18n="navAbout">About</a>
+                <a href="#highlights" class="footer-link" data-i18n="navHighlights">Highlights</a>
+                <a href="#gallery" class="footer-link" data-i18n="navGallery">Gallery</a>
+                <a href="#contacts" class="footer-link" data-i18n="navContacts">Contacts</a>
+            </nav>
+            <div class="footer-bottom">
+                <p data-i18n="footerCopy">&copy; 2026 Dekor Potsdam. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-modal" aria-modal="true" role="dialog" aria-label="Image View" hidden>
+        <button class="lightbox-close" aria-label="Close Lightbox" tabindex="0">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+        </button>
+        <button class="lightbox-btn lightbox-prev" aria-label="Previous Image" tabindex="0">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+        </button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+        </div>
+        <button class="lightbox-btn lightbox-next" aria-label="Next Image" tabindex="0">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Back to Top" tabindex="0">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M12 19V5M5 12L12 5L19 12" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </button>
+
+    <!-- External Script ensures CSP compliance -->
+    <script src="script.js"></script>
+</body>
+
+</html>

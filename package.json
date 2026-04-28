@@ -1,0 +1,15 @@
+{
+  "name": "dekorpotsdam",
+  "version": "1.0.0",
+  "description": "Luxury Decorative Plaster One-Pager",
+  "scripts": {
+    "lint:lockfile": "lockfile-lint --path pnpm-lock.yaml --type pnpm --validate-https --allowed-hosts npm"
+  },
+  "devDependencies": {
+    "lockfile-lint": "4.14.0"
+  },
+  "engines": {
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.1.0"
+}
