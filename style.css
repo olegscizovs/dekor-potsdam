@@ -420,6 +420,18 @@ img {
     margin-bottom: var(--space-md);
 }
 
+.section-list {
+    font-size: var(--font-size-p);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+    margin-left: 1.5rem;
+    list-style-type: disc;
+}
+
+.section-list li {
+    margin-bottom: 0.5rem;
+}
+
 .split-image-container {
     position: relative;
     overflow: hidden;

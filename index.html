@@ -4,10 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Strict CSP: Only allows scripts from self, styles from self. Prevents unsafe-inline -->
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https://images.unsplash.com; object-src 'none'; base-uri 'self'; form-action 'self';">
-    <title>Dekor Potsdam | Luxury Decorative Plaster</title>
+    <title>Dekor Potsdam | Luxury Decoration</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -31,11 +28,11 @@
 
         <nav class="main-nav" aria-label="Main Navigation">
             <ul class="desktop-nav-list">
-                <li><a href="#hero" class="desktop-link" data-i18n="navHome">Home</a></li>
-                <li><a href="#about" class="desktop-link" data-i18n="navAbout">About</a></li>
+                <li><a href="#hero" class="desktop-link" data-i18n="navHome">Startseite</a></li>
+                <li><a href="#about" class="desktop-link" data-i18n="navAbout">Über uns</a></li>
                 <li><a href="#highlights" class="desktop-link" data-i18n="navHighlights">Highlights</a></li>
-                <li><a href="#gallery" class="desktop-link" data-i18n="navGallery">Gallery</a></li>
-                <li><a href="#contacts" class="desktop-link" data-i18n="navContacts">Contacts</a></li>
+                <li><a href="#gallery" class="desktop-link" data-i18n="navGallery">Galerie</a></li>
+                <li><a href="#contacts" class="desktop-link" data-i18n="navContacts">Kontakte</a></li>
             </ul>
             <button class="burger-menu" aria-label="Open Menu" tabindex="0">
                 <span class="burger-line"></span>
@@ -54,11 +51,11 @@
     <!-- Fullscreen Navigation Menu -->
     <nav id="mobile-nav" class="mobile-nav" aria-hidden="true">
         <ul class="mobile-nav-list">
-            <li><a href="#hero" class="mobile-link" data-i18n="navHome">Home</a></li>
-            <li><a href="#about" class="mobile-link" data-i18n="navAbout">About</a></li>
+            <li><a href="#hero" class="mobile-link" data-i18n="navHome">Startseite</a></li>
+            <li><a href="#about" class="mobile-link" data-i18n="navAbout">Über uns</a></li>
             <li><a href="#highlights" class="mobile-link" data-i18n="navHighlights">Highlights</a></li>
-            <li><a href="#gallery" class="mobile-link" data-i18n="navGallery">Gallery</a></li>
-            <li><a href="#contacts" class="mobile-link" data-i18n="navContacts">Contacts</a></li>
+            <li><a href="#gallery" class="mobile-link" data-i18n="navGallery">Galerie</a></li>
+            <li><a href="#contacts" class="mobile-link" data-i18n="navContacts">Kontakt</a></li>
         </ul>
     </nav>
 
@@ -69,8 +66,8 @@
                 <h1 class="hero-title" data-i18n="heroTitle">Ihr Zuhause, Ihre Wohlfühloase</h1>
                 <p class="hero-subtext" data-i18n="heroSubtext">Ob stilvolle Gestaltung von Wänden, Decken oder Böden -
                     wir verwandeln Ihr Büro, Ihr Zuhause oder Ihr Geschäft in eine einzigartige Wohlfühloase.</p>
-                <button id="discover-btn" class="cta-button" tabindex="0" data-i18n="heroCTA">Discover Our
-                    Craft</button>
+                <button id="discover-btn" class="cta-button" tabindex="0" data-i18n="heroCTA">Entdecken Sie unsere
+                    Kunst</button>
             </div>
             <!-- Parallax Background Overlay Placeholder -->
             <div class="hero-bg"></div>
@@ -82,12 +79,15 @@
                 <div class="split-text reveal-on-scroll">
                     <h2 class="section-title" data-i18n="aboutTitle">Dekor Salon Potsdam - Ihr Partner für
                         Raumgestaltung</h2>
-                    <p class="section-desc" data-i18n="aboutDesc">We specialize in premium decorative plaster,
-                        transforming ordinary walls into extraordinary centerpieces. Our master artisans blend
-                        traditional techniques with modern aesthetics to create textures that breathe life into any
-                        interior.</p>
-                    <p class="section-desc" data-i18n="aboutSubDesc">From subtle Venetian stucco to bold concrete
-                        finishes, our work is defined by precision, passion, and unparalleled quality.</p>
+                    <ul class="section-list">
+                        <li data-i18n="aboutList1">Individuelle Wand-, Decken- & Bodengestaltung</li>
+                        <li data-i18n="aboutList2">Hochwertige, natürliche und schadstofffreie Materialien für ein gesundes Raumklima - kombiniert mit kreativen Techniken und beeindruckenden Effekten.</li>
+                        <li data-i18n="aboutList3">Professionelle Umsetzung mit Liebe zum Detail</li>
+                        <li data-i18n="aboutList4">Gestalten Sie Ihr Zuhause neu - stilvoll & einzigartig!</li>
+                        <li data-i18n="aboutList5">Besuchen Sie unsere Ausstellung!</li>
+                        <li data-i18n="aboutList6">Vereinbaren Sie einen Termin für eine persönliche Beratung</li>
+                        <li data-i18n="aboutList7">Oder schauen Sie sich unsere Werke selbst an - Eingang durch den Kosmetiksalon "Lera"</li>
+                    </ul>
                 </div>
                 <div class="split-image-container reveal-on-scroll">
                     <img src="images/6.jpg" alt="Detailed view of luxury decorative plaster texture"
@@ -161,7 +161,7 @@
         <!-- Section 4: Gallery -->
         <section id="gallery" class="section gallery-section">
             <div class="container">
-                <h2 class="section-title text-center reveal-on-scroll" data-i18n="galleryTitle">Our Portfolio</h2>
+                <h2 class="section-title text-center reveal-on-scroll" data-i18n="galleryTitle">Unser Portfolio</h2>
                 <div class="gallery-wrapper">
                     <button class="gallery-nav-btn gallery-prev" aria-label="Previous Image" tabindex="0">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -241,20 +241,21 @@
         <!-- Section 5: Contacts -->
         <section id="contacts" class="section contacts-section">
             <div class="container text-center">
-                <h2 class="section-title reveal-on-scroll" data-i18n="contactsTitle">Get in Touch</h2>
+                <h2 class="section-title reveal-on-scroll" data-i18n="contactsTitle">Kontakt</h2>
                 <div class="contact-info reveal-on-scroll">
                     <address class="contact-details">
-                        <p class="contact-label" data-i18n="contactAddressLabel">Address:</p>
-                        <p class="contact-value" data-i18n="contactAddress">Plasterstr. 1, 14467 Potsdam, Germany</p>
+                        <p class="contact-label" data-i18n="contactAddressLabel">Adresse:</p>
+                        <p class="contact-value" data-i18n="contactAddress">Gutenbergstraße 32, Potsdam, 14467,
+                            Deutschland</p>
 
-                        <p class="contact-label" data-i18n="contactPhoneLabel">Phone:</p>
-                        <p class="contact-value" data-i18n="contactPhone">+49 331 1234567</p>
+                        <p class="contact-label" data-i18n="contactPhoneLabel">Telefon:</p>
+                        <p class="contact-value" data-i18n="contactPhone">+49 152 34599997</p>
 
                         <p class="contact-label" data-i18n="contactEmailLabel">Email:</p>
-                        <p class="contact-value" data-i18n="contactEmail">info@dekorpotsdam.de</p>
+                        <p class="contact-value" data-i18n="contactEmail">dekor@salonpotsdam.de</p>
 
-                        <p class="contact-label" data-i18n="contactHoursLabel">Business Hours:</p>
-                        <p class="contact-value" data-i18n="contactHours">Mon-Fri: 9:00 - 18:00</p>
+                        <p class="contact-label" data-i18n="contactHoursLabel">Öffnungszeiten:</p>
+                        <p class="contact-value" data-i18n="contactHours">nach Vereinbarung</p>
                     </address>
                 </div>
             </div>
@@ -265,14 +266,14 @@
     <footer class="site-footer" id="footer">
         <div class="container footer-content">
             <nav class="footer-nav" aria-label="Footer Navigation">
-                <a href="#hero" class="footer-link" data-i18n="navHome">Home</a>
-                <a href="#about" class="footer-link" data-i18n="navAbout">About</a>
+                <a href="#hero" class="footer-link" data-i18n="navHome">Startseite</a>
+                <a href="#about" class="footer-link" data-i18n="navAbout">Über uns</a>
                 <a href="#highlights" class="footer-link" data-i18n="navHighlights">Highlights</a>
-                <a href="#gallery" class="footer-link" data-i18n="navGallery">Gallery</a>
-                <a href="#contacts" class="footer-link" data-i18n="navContacts">Contacts</a>
+                <a href="#gallery" class="footer-link" data-i18n="navGallery">Galerie</a>
+                <a href="#contacts" class="footer-link" data-i18n="navContacts">Kontakt</a>
             </nav>
             <div class="footer-bottom">
-                <p data-i18n="footerCopy">&copy; 2026 Dekor Potsdam. All rights reserved.</p>
+                <p data-i18n="footerCopy">&copy; 2026 Dekor Potsdam. Alle Rechte vorbehalten.</p>
             </div>
         </div>
     </footer>
