@@ -18,6 +18,7 @@ const translations = {
         aboutList5: "Besuchen Sie unsere Ausstellung!",
         aboutList6: "Vereinbaren Sie einen Termin für eine persönliche Beratung",
         aboutList7: "Oder schauen Sie sich unsere Werke selbst an - Eingang durch den Kosmetiksalon \"Lera\"",
+        cubeGalleryTitle: "3D Galerie",
         highlightsTitle: "Unsere Highlights",
         card1Title: "Professionelle Gestaltung",
         card1Desc: "Ästhetik und Funktionalität in jedem Raum.",
@@ -56,6 +57,7 @@ const translations = {
         aboutList5: "Visit our exhibition!",
         aboutList6: "Make an appointment for a personal consultation",
         aboutList7: "Or see our works for yourself - entrance through the beauty salon \"Lera\"",
+        cubeGalleryTitle: "3D Gallery",
         highlightsTitle: "Our Highlights",
         card1Title: "Professional Design",
         card1Desc: "Aesthetics and functionality in every room.",
@@ -94,6 +96,7 @@ const translations = {
         aboutList5: "Посетите нашу выставку!",
         aboutList6: "Запишитесь на индивидуальную консультацию",
         aboutList7: "Или посмотрите наши работы сами - вход через салон красоты \"Lera\"",
+        cubeGalleryTitle: "3D Галерея",
         highlightsTitle: "Наши преимущества",
         card1Title: "Профессиональный дизайн",
         card1Desc: "Эстетика и функциональность в каждом помещении.",
@@ -279,48 +282,197 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSlider();
     }
 
-    // Gallery Mobile Navigation
-    const galleryGrid = document.querySelector('.gallery-grid');
-    const galleryMobilePrev = document.querySelector('.gallery-prev');
-    const galleryMobileNext = document.querySelector('.gallery-next');
+    // 3D Transform Slice Gallery Logic
+    class SliceGallery {
+        constructor(containerId, images) {
+            this.container = document.getElementById(containerId);
+            if (!this.container) return;
+            
+            this.images = images;
+            this.currentIndex = 0;
+            this.isAnimating = false;
+            
+            this.staticImage = document.createElement('img');
+            this.staticImage.style.width = '100%';
+            this.staticImage.style.height = '100%';
+            this.staticImage.style.objectFit = 'cover';
+            this.staticImage.style.position = 'absolute';
+            this.staticImage.style.top = '0';
+            this.staticImage.style.left = '0';
+            this.staticImage.src = this.images[this.currentIndex];
+            
+            this.container.appendChild(this.staticImage);
+            
+            this.startTimer();
 
-    if (galleryGrid && galleryMobilePrev && galleryMobileNext) {
-        const galleryItemsMobile = Array.from(galleryGrid.querySelectorAll('.gallery-item'));
-        const totalGalleryItems = galleryItemsMobile.length;
-        let currentGallerySlide = 0;
+            this.container.addEventListener('click', () => {
+                document.dispatchEvent(new CustomEvent('openLightbox', { detail: { index: this.currentIndex } }));
+            });
 
-        const updateMobileGallery = () => {
-            galleryItemsMobile.forEach((item, index) => {
-                item.classList.remove('active-mobile', 'prev-mobile', 'next-mobile');
-
-                if (index === currentGallerySlide) {
-                    item.classList.add('active-mobile');
-                } else if (index === (currentGallerySlide - 1 + totalGalleryItems) % totalGalleryItems) {
-                    item.classList.add('prev-mobile');
-                } else if (index === (currentGallerySlide + 1) % totalGalleryItems) {
-                    item.classList.add('next-mobile');
-                } else {
-                    item.classList.add('next-mobile'); // Keep rest ready on the right
+            this.container.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.container.click();
                 }
             });
-        };
+            
+            const prevBtn = document.querySelector('.slice-prev');
+            const nextBtn = document.querySelector('.slice-next');
+            if (prevBtn) prevBtn.addEventListener('click', () => this.navigate(-1));
+            if (nextBtn) nextBtn.addEventListener('click', () => this.navigate(1));
+        }
+        
+        startTimer() {
+            clearInterval(this.timer);
+            this.timer = setInterval(() => this.navigate(1), 3000);
+        }
+        
+        navigate(dir) {
+            if (this.isAnimating) return;
+            this.isAnimating = true;
+            this.startTimer();
+            
+            const nextIndex = (this.currentIndex + dir + this.images.length) % this.images.length;
+            const currentSrc = this.images[this.currentIndex];
+            const nextSrc = this.images[nextIndex];
+            
+            // Hide the static image during rotation so it doesn't peek through the gaps
+            this.staticImage.style.visibility = 'hidden';
+            
+            const types = ['verticalSlices', 'horizontalSlices', 'wholeCube'];
+            const type = types[Math.floor(Math.random() * types.length)];
+            const pieces = type === 'wholeCube' ? 1 : Math.floor(Math.random() * 3) + 3;
+            
+            let orientation = 'vertical';
+            let rotateAxis = 'rotateX';
+            
+            if (type === 'verticalSlices') {
+                orientation = 'vertical';
+                rotateAxis = Math.random() > 0.5 ? 'rotateX' : 'rotateY';
+            } else if (type === 'horizontalSlices') {
+                orientation = 'horizontal';
+                rotateAxis = Math.random() > 0.5 ? 'rotateX' : 'rotateY';
+            } else {
+                orientation = Math.random() > 0.5 ? 'vertical' : 'horizontal';
+                rotateAxis = Math.random() > 0.5 ? 'rotateX' : 'rotateY';
+            }
+            
+            const direction = Math.random() > 0.5 ? 1 : -1;
+            
+            this.animateSlices(pieces, orientation, rotateAxis, direction, currentSrc, nextSrc, () => {
+                this.currentIndex = nextIndex;
+                
+                // Show the static image instantly after rotation ends
+                this.staticImage.src = this.images[this.currentIndex];
+                this.staticImage.style.visibility = 'visible';
+                
+                const slices = this.container.querySelectorAll('.slice-wrapper');
+                slices.forEach(s => s.remove());
+                this.isAnimating = false;
+            });
+        }
+        
+        animateSlices(pieceCount, orientation, rotateAxis, direction, currentSrc, nextSrc, callback) {
+            const width = this.container.offsetWidth;
+            const height = this.container.offsetHeight;
+            
+            let sliceWidth = orientation === 'vertical' ? width / pieceCount : width;
+            let sliceHeight = orientation === 'horizontal' ? height / pieceCount : height;
+            
+            let depth = rotateAxis === 'rotateX' ? sliceHeight : sliceWidth;
+            let halfDepth = depth / 2;
+            let rotateDeg = direction * 90; 
+            
+            let completed = 0;
+            
+            for (let i = 0; i < pieceCount; i++) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'slice-wrapper';
+                
+                let left = orientation === 'vertical' ? i * sliceWidth : 0;
+                let top = orientation === 'horizontal' ? i * sliceHeight : 0;
+                
+                Object.assign(wrapper.style, {
+                    left: left + 'px',
+                    top: top + 'px',
+                    width: sliceWidth + 'px',
+                    height: sliceHeight + 'px',
+                    transform: `translateZ(-${halfDepth}px)`,
+                    transition: `transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${i * 0.1}s`
+                });
+                
+                const inner = document.createElement('div');
+                inner.className = 'slice-inner';
+                inner.style.animationDelay = `${i * 0.1}s`;
+                
+                let faces = [];
+                if (rotateAxis === 'rotateX') {
+                    faces = [ { rx: 0, ry: 0, n: 'front' }, { rx: 180, ry: 0, n: 'back' }, { rx: 90, ry: 0, n: 'top' }, { rx: -90, ry: 0, n: 'bottom' } ];
+                } else {
+                    faces = [ { rx: 0, ry: 0, n: 'front' }, { rx: 0, ry: 180, n: 'back' }, { rx: 0, ry: 90, n: 'right' }, { rx: 0, ry: -90, n: 'left' } ];
+                }
+                
+                let targetAngle = direction === 1 ? -90 : 90;
+                
+                faces.forEach(f => {
+                    const faceEl = document.createElement('div');
+                    faceEl.className = 'slice-face';
+                    Object.assign(faceEl.style, {
+                        width: sliceWidth + 'px',
+                        height: sliceHeight + 'px',
+                        transform: `rotateX(${f.rx}deg) rotateY(${f.ry}deg) translateZ(${halfDepth}px)`
+                    });
+                    
+                    let angleToMatch = rotateAxis === 'rotateX' ? f.rx : f.ry;
+                    
+                    if (f.n === 'front') {
+                        faceEl.appendChild(this.createImg(sliceWidth, sliceHeight, currentSrc, left, top, width, height));
+                    } else if (angleToMatch === targetAngle) {
+                        faceEl.appendChild(this.createImg(sliceWidth, sliceHeight, nextSrc, left, top, width, height));
+                    } else {
+                        faceEl.style.background = '#111';
+                    }
+                    inner.appendChild(faceEl);
+                });
+                
+                wrapper.appendChild(inner);
+                this.container.appendChild(wrapper);
+                
+                wrapper.offsetHeight; // trigger layout
+                wrapper.style.transform = `translateZ(-${halfDepth}px) ${rotateAxis}(${rotateDeg}deg)`;
+                
+                wrapper.addEventListener('transitionend', (e) => {
+                    if (e.target === wrapper) {
+                        completed++;
+                        if (completed === pieceCount) callback();
+                    }
+                });
+            }
+        }
+        
+        createImg(w, h, src, left, top, totalW, totalH) {
+            const img = document.createElement('img');
+            img.src = src;
+            Object.assign(img.style, {
+                position: 'absolute',
+                width: totalW + 'px',
+                height: totalH + 'px',
+                maxWidth: 'none',
+                maxHeight: 'none',
+                left: -left + 'px',
+                top: -top + 'px',
+                objectFit: 'cover'
+            });
+            return img;
+        }
+    }
 
-        galleryMobileNext.addEventListener('click', () => {
-            currentGallerySlide = (currentGallerySlide + 1) % totalGalleryItems;
-            updateMobileGallery();
-        });
-
-        galleryMobilePrev.addEventListener('click', () => {
-            currentGallerySlide = (currentGallerySlide - 1 + totalGalleryItems) % totalGalleryItems;
-            updateMobileGallery();
-        });
-
-        // Initialize mobile carousel classes
-        updateMobileGallery();
+    const galleryImages = Array.from(document.querySelectorAll('.gallery-source')).map(img => img.src);
+    if (galleryImages.length > 0) {
+        new SliceGallery('slice-gallery', galleryImages);
     }
 
     // Lightbox Logic
-    const galleryItems = document.querySelectorAll('.gallery-item');
     const lightboxModal = document.getElementById('lightbox-modal');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.querySelector('.lightbox-close');
@@ -329,16 +481,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentLightboxIndex = 0;
 
-    if (lightboxModal && lightboxImg && lightboxClose) {
+    if (lightboxModal && lightboxImg && lightboxClose && galleryImages.length > 0) {
         const updateLightboxImage = (index) => {
-            if (index < 0 || index >= galleryItems.length) return;
-            const img = galleryItems[index].querySelector('img');
-            if (img) {
-                const fullSrc = img.getAttribute('data-full') || img.getAttribute('src');
-                const altText = img.getAttribute('alt') || 'Gallery Image';
-                lightboxImg.setAttribute('src', fullSrc);
-                lightboxImg.setAttribute('alt', altText);
-            }
+            if (index < 0 || index >= galleryImages.length) return;
+            lightboxImg.setAttribute('src', galleryImages[index]);
+            lightboxImg.setAttribute('alt', 'Gallery Image');
         };
 
         const openLightbox = (index) => {
@@ -348,24 +495,22 @@ document.addEventListener('DOMContentLoaded', () => {
             lightboxClose.focus();
         };
 
+        document.addEventListener('openLightbox', (e) => {
+            openLightbox(e.detail.index);
+        });
+
         const closeLightbox = () => {
             lightboxModal.setAttribute('hidden', '');
             lightboxImg.setAttribute('src', ''); // Clear source
         };
 
-        galleryItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                openLightbox(index);
-            });
-        });
-
         const nextLightboxImage = () => {
-            currentLightboxIndex = (currentLightboxIndex + 1) % galleryItems.length;
+            currentLightboxIndex = (currentLightboxIndex + 1) % galleryImages.length;
             updateLightboxImage(currentLightboxIndex);
         };
 
         const prevLightboxImage = () => {
-            currentLightboxIndex = (currentLightboxIndex - 1 + galleryItems.length) % galleryItems.length;
+            currentLightboxIndex = (currentLightboxIndex - 1 + galleryImages.length) % galleryImages.length;
             updateLightboxImage(currentLightboxIndex);
         };
 

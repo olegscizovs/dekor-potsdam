@@ -158,80 +158,38 @@
             </div>
         </section>
 
-        <!-- Section 4: Gallery -->
-        <section id="gallery" class="section gallery-section">
+        <!-- Section 4: 3D Transform Gallery -->
+        <section id="gallery" class="section cube-gallery-section">
             <div class="container">
                 <h2 class="section-title text-center reveal-on-scroll" data-i18n="galleryTitle">Unser Portfolio</h2>
-                <div class="gallery-wrapper">
-                    <button class="gallery-nav-btn gallery-prev" aria-label="Previous Image" tabindex="0">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
+                <div class="slice-gallery-wrapper reveal-on-scroll">
+                    <button class="slice-btn slice-prev" aria-label="Previous Image" tabindex="0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M15 18l-6-6 6-6" />
                         </svg>
                     </button>
-                    <div class="gallery-grid">
-
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/18.jpg" alt="Gallery Image 6" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/14.jpg" alt="Gallery Image 7" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/15.jpg" alt="Gallery Image 8" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/16.jpg" alt="Gallery Image 6" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/20.jpg" alt="Gallery Image 7" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/12.jpg" alt="Gallery Image 8" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/19.jpg" alt="Gallery Image 6" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/27.jpg" alt="Gallery Image 7" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/10.jpg" alt="Gallery Image 8" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/17.jpg" alt="Gallery Image 6" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/24.jpg" alt="Gallery Image 7" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/13.jpg" alt="Gallery Image 8" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/11.jpg" alt="Gallery Image 6" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/22.jpg" alt="Gallery Image 7" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/21.jpg" alt="Gallery Image 8" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/23.jpg" alt="Gallery Image 6" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/25.jpg" alt="Gallery Image 7" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/26.jpg" alt="Gallery Image 8" loading="lazy">
-                        </button>
-                        <button class="gallery-item" aria-label="View Image 5">
-                            <img src="images/29.jpg" alt="Gallery Image 8" loading="lazy">
-                        </button>
+                    <div id="slice-gallery" class="slice-gallery" tabindex="0" aria-label="3D Transforming Gallery">
+                        <img src="images/18.jpg" alt="Gallery Image 6" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/14.jpg" alt="Gallery Image 7" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/15.jpg" alt="Gallery Image 8" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/16.jpg" alt="Gallery Image 6" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/20.jpg" alt="Gallery Image 7" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/12.jpg" alt="Gallery Image 8" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/19.jpg" alt="Gallery Image 6" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/27.jpg" alt="Gallery Image 7" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/10.jpg" alt="Gallery Image 8" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/17.jpg" alt="Gallery Image 6" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/24.jpg" alt="Gallery Image 7" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/13.jpg" alt="Gallery Image 8" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/11.jpg" alt="Gallery Image 6" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/22.jpg" alt="Gallery Image 7" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/21.jpg" alt="Gallery Image 8" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/23.jpg" alt="Gallery Image 6" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/25.jpg" alt="Gallery Image 7" style="display:none;" class="gallery-source" loading="lazy">
+                        <img src="images/26.jpg" alt="Gallery Image 8" style="display:none;" class="gallery-source" loading="lazy">
                     </div>
-                    <button class="gallery-nav-btn gallery-next" aria-label="Next Image" tabindex="0">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
+                    <button class="slice-btn slice-next" aria-label="Next Image" tabindex="0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M9 18l6-6-6-6" />
                         </svg>
                     </button>
