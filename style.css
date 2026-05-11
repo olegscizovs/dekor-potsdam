@@ -631,7 +631,7 @@ img {
 
 .slice-gallery {
     width: 100%;
-    max-width: 800px;
+    max-width: 600px;
     aspect-ratio: 1 / 1;
     position: relative;
     perspective: 1500px;
@@ -667,16 +667,25 @@ img {
     z-index: 10;
 }
 
-.slice-btn:hover, .slice-btn:focus-visible {
+.slice-btn:hover,
+.slice-btn:focus-visible {
     background: var(--color-accent);
     color: var(--color-bg-base);
     border-color: var(--color-accent);
 }
 
 @keyframes separateSlice {
-    0% { transform: scale3d(1, 1, 1); }
-    50% { transform: scale3d(0.92, 0.92, 0.92); }
-    100% { transform: scale3d(1, 1, 1); }
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        transform: scale3d(0.92, 0.92, 0.92);
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
 }
 
 .slice-wrapper {
@@ -709,15 +718,18 @@ img {
     .slice-gallery-wrapper {
         position: relative;
     }
+
     .slice-btn {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
         background: rgba(10, 10, 10, 0.7);
     }
+
     .slice-prev {
         left: -15px;
     }
+
     .slice-next {
         right: -15px;
     }
@@ -727,6 +739,7 @@ img {
     .slice-gallery {
         max-width: 300px;
     }
+
     @supports not (aspect-ratio: 1/1) {
         .slice-gallery {
             height: 300px;
@@ -738,6 +751,7 @@ img {
     .slice-gallery {
         max-width: 250px;
     }
+
     @supports not (aspect-ratio: 1/1) {
         .slice-gallery {
             height: 250px;
