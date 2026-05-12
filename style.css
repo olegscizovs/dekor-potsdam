@@ -642,7 +642,7 @@ img {
 
 @supports not (aspect-ratio: 1/1) {
     .slice-gallery {
-        height: 800px;
+        height: 600px;
     }
 }
 
