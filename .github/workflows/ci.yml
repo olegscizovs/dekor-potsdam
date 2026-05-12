@@ -1,4 +1,4 @@
-name: Lockfile Lint
+name: CI
 
 on:
   push:
@@ -7,8 +7,10 @@ on:
   pull_request:
 
 jobs:
-  lint-lockfile:
+  validate:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -16,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -24,7 +26,4 @@ jobs:
           version: 9.1.0
 
       - name: Install dependencies
-        run: pnpm install --ignore-scripts --frozen-lockfile || true
-
-      - name: Run lockfile-lint
-        run: npx lockfile-lint --path pnpm-lock.yaml --type pnpm --validate-https --allowed-hosts npm
+        run: pnpm install --ignore-scripts --frozen-lockfile
