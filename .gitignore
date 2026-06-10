@@ -3,6 +3,7 @@
 
 # Markdown Documentation
 *.md
+!README.md
 
 # Dependency Directories
 node_modules/
