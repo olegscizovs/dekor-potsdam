@@ -1,0 +1,58 @@
+/* ==========================================================================
+   Section 2: About (Split Layout)
+   ========================================================================== */
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+}
+
+.section-title {
+    font-size: var(--font-size-h2);
+    color: var(--color-accent);
+}
+
+.section-desc {
+    font-size: var(--font-size-p);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.section-list {
+    font-size: var(--font-size-p);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+    margin-left: 1.5rem;
+    list-style-type: disc;
+}
+
+.section-list li {
+    margin-bottom: 0.5rem;
+}
+
+.split-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.split-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-smooth);
+}
+
+.split-image-container:hover img {
+    transform: scale(1.05);
+    /* Subtle zoom on hover */
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+    .split-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+}

@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Layout Containers & Section Styles
+   ========================================================================== */
+.section {
+    min-height: 100vh;
+    padding: var(--space-xl) 5%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.container-narrow {
+    max-width: 800px;
+}

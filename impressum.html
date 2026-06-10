@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum | Dekor Potsdam</title>
+    <meta name="description" content="Impressum und rechtliche Angaben für den Dekor Salon Potsdam.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="impressum-page">
+
+    <!-- Header Navigation & Language Switcher -->
+    <header class="site-header">
+        <div class="logo-container">
+            <svg class="logo-svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            <span class="logo-text">DEKOR POTSDAM</span>
+        </div>
+
+        <nav class="main-nav" aria-label="Main Navigation">
+            <ul class="desktop-nav-list show-always">
+                <li><a href="index.html#footer" class="desktop-link" data-i18n="navBackHome" id="back-home-link">Zurück zur Startseite</a></li>
+            </ul>
+        </nav>
+
+        <div class="i18n-switcher" aria-label="Language Switcher">
+            <button class="lang-btn active" data-lang="de" id="lang-de-btn" tabindex="0">DE</button>
+            <button class="lang-btn" data-lang="en" id="lang-en-btn" tabindex="0">EN</button>
+            <button class="lang-btn" data-lang="ru" id="lang-ru-btn" tabindex="0">RU</button>
+        </div>
+    </header>
+
+    <main class="impressum-main">
+        <section class="section impressum-section">
+            <div class="container container-narrow reveal-on-scroll is-revealed">
+                <h1 class="section-title text-center" data-i18n="impressumTitle">Impressum</h1>
+                
+                <div class="impressum-content">
+                    <div class="impressum-block">
+                        <h2 data-i18n="impressumSection1">Angaben gemäß § 5 TMG</h2>
+                        <p class="impressum-text">
+                            <strong>Sergejs Janovics</strong><br>
+                            Gutenbergstraße 32<br>
+                            14467 Potsdam<br>
+                            Deutschland
+                        </p>
+                    </div>
+
+                    <div class="impressum-block">
+                        <h2 data-i18n="impressumSection2">Kontakt</h2>
+                        <p class="impressum-text">
+                            <strong data-i18n="contactPhoneLabel">Telefon:</strong> +4915234599997<br>
+                            <strong>E-Mail:</strong> sergejandteam@gmail.com<br>
+                            <strong>Dekor Salon E-Mail:</strong> dekor@salonpotsdam.de
+                        </p>
+                    </div>
+
+                    <div class="impressum-block">
+                        <h2 data-i18n="impressumSection3">Umsatzsteuer-Identifikationsnummer</h2>
+                        <p class="impressum-text">
+                            <span data-i18n="vatLabel">Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:</span><br>
+                            <strong>DE276742807</strong>
+                        </p>
+                    </div>
+
+                    <div class="impressum-block">
+                        <h2 data-i18n="impressumSection4">Verbraucherstreitbeilegung/Universalschlichtungsstelle</h2>
+                        <p class="impressum-text" data-i18n="disputeText">
+                            Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <nav class="footer-nav" aria-label="Footer Navigation">
+                <a href="index.html#footer" class="footer-link" data-i18n="navHome">Startseite</a>
+                <a href="index.html#about" class="footer-link" data-i18n="navAbout">Über uns</a>
+                <a href="index.html#highlights" class="footer-link" data-i18n="navHighlights">Highlights</a>
+                <a href="index.html#gallery" class="footer-link" data-i18n="navGallery">Galerie</a>
+                <a href="index.html#contacts" class="footer-link" data-i18n="navContacts">Kontakt</a>
+                <a href="impressum.html" class="footer-link active" data-i18n="navImpressum" id="footer-impressum-link">Impressum</a>
+            </nav>
+            <div class="footer-bottom">
+                <p data-i18n="footerCopy">&copy; 2026 Dekor Potsdam. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

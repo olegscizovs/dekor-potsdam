@@ -198,23 +198,27 @@
         </section>
         <!-- Section 5: Contacts -->
         <section id="contacts" class="section contacts-section">
-            <div class="container text-center">
-                <h2 class="section-title reveal-on-scroll" data-i18n="contactsTitle">Kontakt</h2>
-                <div class="contact-info reveal-on-scroll">
-                    <address class="contact-details">
-                        <p class="contact-label" data-i18n="contactAddressLabel">Adresse:</p>
-                        <p class="contact-value" data-i18n="contactAddress">Gutenbergstraße 32, Potsdam, 14467,
-                            Deutschland</p>
+            <div class="container">
+                <h2 class="section-title text-center reveal-on-scroll" data-i18n="contactsTitle">Kontakt</h2>
+                <div class="contacts-grid reveal-on-scroll">
+                    <div class="contact-info">
+                        <address class="contact-details">
+                            <p class="contact-label" data-i18n="contactAddressLabel">Adresse:</p>
+                            <p class="contact-value" data-i18n="contactAddress">Gutenbergstraße 32, Potsdam, 14467, Deutschland</p>
 
-                        <p class="contact-label" data-i18n="contactPhoneLabel">Telefon:</p>
-                        <p class="contact-value" data-i18n="contactPhone">+49 152 34599997</p>
+                            <p class="contact-label" data-i18n="contactPhoneLabel">Telefon:</p>
+                            <p class="contact-value" data-i18n="contactPhone">+49 152 34599997</p>
 
-                        <p class="contact-label" data-i18n="contactEmailLabel">Email:</p>
-                        <p class="contact-value" data-i18n="contactEmail">dekor@salonpotsdam.de</p>
+                            <p class="contact-label" data-i18n="contactEmailLabel">Email:</p>
+                            <p class="contact-value" data-i18n="contactEmail">dekor@salonpotsdam.de</p>
 
-                        <p class="contact-label" data-i18n="contactHoursLabel">Öffnungszeiten:</p>
-                        <p class="contact-value" data-i18n="contactHours">nach Vereinbarung</p>
-                    </address>
+                            <p class="contact-label" data-i18n="contactHoursLabel">Öffnungszeiten:</p>
+                            <p class="contact-value" data-i18n="contactHours">nach Vereinbarung</p>
+                        </address>
+                    </div>
+                    <div class="contact-map">
+                        <iframe class="map-iframe" src="https://maps.google.com/maps?q=Gutenbergstra%C3%9Fe%2032%2C%2014467%20Potsdam%2C%20Deutschland&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Map of Dekor Salon Potsdam"></iframe>
+                    </div>
                 </div>
             </div>
         </section>
@@ -229,6 +233,7 @@
                 <a href="#highlights" class="footer-link" data-i18n="navHighlights">Highlights</a>
                 <a href="#gallery" class="footer-link" data-i18n="navGallery">Galerie</a>
                 <a href="#contacts" class="footer-link" data-i18n="navContacts">Kontakt</a>
+                <a href="impressum.html" class="footer-link" data-i18n="navImpressum">Impressum</a>
             </nav>
             <div class="footer-bottom">
                 <p data-i18n="footerCopy">&copy; 2026 Dekor Potsdam. Alle Rechte vorbehalten.</p>
@@ -266,8 +271,11 @@
         </svg>
     </button>
 
-    <!-- External Script ensures CSP compliance -->
-    <script src="script.js"></script>
+    <!-- External Scripts for modularity -->
+    <script src="js/translations.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/slice-gallery.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,41 @@
+# Ignored Files & Directories
+# -----------------------------
+
+# Markdown Documentation
+*.md
+
+# Dependency Directories
+node_modules/
+jspm_packages/
+web_modules/
+
+# Logs and Debugging Files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs, Code Editors, and Tooling Configs
+.idea/
+.project
+.classpath
+.cproject
+.settings/
+*.launch
+*.sublime-workspace
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
