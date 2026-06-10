@@ -56,8 +56,3 @@
         padding: var(--space-md);
     }
 }
-
-.show-always {
-    display: flex !important;
-}
-

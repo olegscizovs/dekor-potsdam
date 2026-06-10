@@ -159,12 +159,19 @@ class SliceGallery {
             wrapper.offsetHeight; // trigger layout
             wrapper.style.transform = `translateZ(-${halfDepth}px) ${rotateAxis}(${rotateDeg}deg)`;
             
-            wrapper.addEventListener('transitionend', (e) => {
-                if (e.target === wrapper) {
-                    completed++;
-                    if (completed === pieceCount) callback();
-                }
-            });
+            let transitionCalled = false;
+            const onTransitionEnd = (e) => {
+                if (e && e.target !== wrapper) return;
+                if (transitionCalled) return;
+                transitionCalled = true;
+                completed++;
+                if (completed === pieceCount) callback();
+            };
+
+            wrapper.addEventListener('transitionend', onTransitionEnd);
+            
+            // Safety timeout fallback (1.2s transition time + stagger delay)
+            setTimeout(onTransitionEnd, 1200 + (i * 100));
         }
     }
     

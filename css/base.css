@@ -59,3 +59,9 @@ img {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Global Utilities */
+.text-center {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}

@@ -28,7 +28,11 @@ function setLanguage(langCode) {
     });
 
     // Save preference
-    localStorage.setItem('preferredLang', langCode);
+    try {
+        localStorage.setItem('preferredLang', langCode);
+    } catch (e) {
+        console.warn('Unable to save language preference to localStorage:', e);
+    }
 }
 
 // Lightbox Modal Component
@@ -133,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const toggleMenu = () => {
             const isExpanded = burgerMenu.getAttribute('aria-expanded') === 'true';
             burgerMenu.setAttribute('aria-expanded', !isExpanded);
+            mobileNav.setAttribute('aria-hidden', isExpanded ? 'true' : 'false');
             burgerMenu.classList.toggle('is-active');
             mobileNav.classList.toggle('is-open');
 
@@ -247,6 +252,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 8. Set Language (DE default, or stored preference)
-    const savedLang = localStorage.getItem('preferredLang') || 'de';
+    let savedLang = 'de';
+    try {
+        savedLang = localStorage.getItem('preferredLang') || 'de';
+    } catch (e) {
+        console.warn('Unable to read language preference from localStorage:', e);
+    }
     setLanguage(savedLang);
 });

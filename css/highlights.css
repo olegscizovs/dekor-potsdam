@@ -1,10 +1,6 @@
 /* ==========================================================================
    Section 3: Highlights (Slider)
    ========================================================================== */
-.text-center {
-    text-align: center;
-    margin-bottom: var(--space-lg);
-}
 
 .highlights-section {
     background-color: var(--color-bg-surface);

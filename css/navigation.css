@@ -22,8 +22,8 @@
 .logo-svg {
     color: var(--color-accent);
     animation: rotateLogo 20s linear infinite;
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 32px;
 }
 
 @keyframes rotateLogo {
@@ -119,8 +119,8 @@
 
 @media (max-width: 1094px) {
     .logo-svg {
-        width: 36px;
-        height: 36px;
+        width: 24px;
+        height: 24px;
     }
 
     .logo-text {
@@ -136,24 +136,6 @@
     }
 }
 
-@media (max-width: 915px) {
-    .logo-svg {
-        width: 36px;
-        height: 36px;
-    }
-
-    .logo-text {
-        font-size: 0.7rem;
-    }
-
-    .desktop-link {
-        font-size: 0.7rem !important;
-    }
-
-    .desktop-nav-list {
-        margin-bottom: 3px !important;
-    }
-}
 
 @media (max-width: 900px) {
     .desktop-nav-list {
@@ -272,4 +254,8 @@
     background: var(--color-accent);
     color: var(--color-bg-base);
     border-color: var(--color-accent);
+}
+
+.show-always {
+    display: flex !important;
 }
